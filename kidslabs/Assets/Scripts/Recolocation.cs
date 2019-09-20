@@ -9,16 +9,33 @@ using System.Diagnostics;
 public class Recolocation:MonoBehaviour {
     public GameObject game;
     public bool B_Check;
+    public GameObject gg;
     public SerialPort sp = new SerialPort("COM3", 38400);
     public void Start1()
     {
-        B_Check = true;
-        sp.Open();
+        if (!B_Check)
+        {
+            B_Check = true;
+            sp.Open();
+            gg.SetActive(true);
+            game.SetActive(true);
+        }
+        else
+        {
+            B_Check = false;
+            sp.Close();
+            gg.SetActive(false);
+            game.SetActive(false);
+        }
       // InvokeRepeating("Resolocation", 0.1f, 0.2f);
        // Process.Start("C:\\Users/lord1/source/repos/ConsoleApp15/ConsoleApp15/bin/Debug/ConsoleApp15.exe");
        // Invoke("Resolocation", 0.1f);
     }
-
+    public void Stop()
+    {
+        B_Check = false;
+        sp.Close();
+    }
         private void Update()
     {
         if (B_Check)
