@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\LoadScenes.cs" />
+    <Compile Include="Assets\Scripts\Micro.cs" />
     <Compile Include="Assets\Scripts\Recolocation.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/lord1/Desktop/kidslabs/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
