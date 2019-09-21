@@ -14,6 +14,7 @@ public class Recolocation:MonoBehaviour {
     public SerialPort sp = new SerialPort("COM3", 38400);
     public Text text;
     public GameObject text1;
+    public float kek;
     public void Start1()
     {
         if (!B_Check)
