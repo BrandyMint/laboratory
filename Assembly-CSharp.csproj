@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\LoadScenes.cs" />
+     <Compile Include="Assets\Scripts\Menu.cs" />
      <Compile Include="Assets\Scripts\Micro.cs" />
      <Compile Include="Assets\Scripts\Recolocation.cs" />
      <Compile Include="Assets\Scripts\Recolocation1.cs" />
