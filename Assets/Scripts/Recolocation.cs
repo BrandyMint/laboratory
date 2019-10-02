@@ -10,10 +10,8 @@ using UnityEngine.UI;
 public class Recolocation:MonoBehaviour {
     public GameObject game;
     public bool B_Check;
-    public GameObject gg;
     public SerialPort sp = new SerialPort("COM3", 38400);
     public Text text;
-    public GameObject text1;
     public float kek;
     public void Start1()
     {
@@ -21,17 +19,13 @@ public class Recolocation:MonoBehaviour {
         {
             B_Check = true;
             sp.Open();
-            gg.SetActive(true);
-            game.SetActive(true);
-            text1.SetActive(true);
+
         }
         else
         {
             B_Check = false;
             sp.Close();
-            gg.SetActive(false);
-            game.SetActive(false);
-            text1.SetActive(false);
+
         }
        InvokeRepeating("Resolocation", 0.1f, 0.1f);
        // Process.Start("C:\\Users/lord1/source/repos/ConsoleApp15/ConsoleApp15/bin/Debug/ConsoleApp15.exe");
