@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Sprites/temperat/scene_temper.unity
+- path: Assets/Scenes/scene_temper.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
