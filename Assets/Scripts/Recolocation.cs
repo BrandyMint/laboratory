@@ -12,9 +12,12 @@ public class Recolocation:MonoBehaviour {
     public bool B_Check;
     public SerialPort sp = new SerialPort("COM3", 1200);
     public Text text;
-    public float kek;
-    public bool kek1;
-    public GameObject gg;
+    
+    public float maxtemp;
+    public float mintemp;
+    public GameObject Fish;
+    bool checkfree;
+
     public void Start1()
     {
         if (!B_Check)
@@ -49,13 +52,39 @@ public class Recolocation:MonoBehaviour {
             game.transform.position = Vector3.Lerp(game.transform.position,new Vector3(game.transform.position.x, (-2.68f + (f * 0.05f)), game.transform.position.z),0.1f);
             game.transform.localScale = new Vector3(game.transform.localScale.x, 4.6737f + (f  * 0.09096f), game.transform.localScale.z);
             text.text = f.ToString();
-
+            FishAnim(f);
         }
 
         
    
     }
- 
+     void FishAnim(float a)
+    {
+        if ((a >= mintemp && a <= maxtemp))
+        {
+            checkfree = false;
+            Fish.GetComponent<Animator>().Play("happy");
+        }
+
+        if ((a < mintemp) )
+        {
+            if (!checkfree)
+            {
+                Fish.GetComponent<Animator>().Play("freezing");
+                Invoke("frost", 1f);
+            }
+        }
+        if ((a > maxtemp))
+        {
+            checkfree = false;
+            Fish.GetComponent<Animator>().Play("hot");
+        }
+    }
+    void frost()
+    {
+        checkfree = true;
+        Fish.GetComponent<Animator>().Play("frost");
+    }
 
 
     }
