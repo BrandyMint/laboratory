@@ -17,7 +17,47 @@ public class Recolocation:MonoBehaviour {
     public float mintemp;
     public GameObject Fish;
     bool checkfree;
+    public  AudioClip[] audio = new AudioClip[20];
+    bool check;
+    public GameObject girl;
+    public AudioSource source;
+     int it = 0;
 
+
+    private void Updat1e()
+    {
+        //сценарий
+        if (it == 0)
+        {
+           
+            if ((!source.isPlaying) && (!check))
+            {
+                check = true;
+                Fish.GetComponent<Animator>().Play("freezing");
+
+                /*        var animatorStateInfo = Fish.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0);
+                      // смотрим, есть ли в нем имя какой-то анимации, то возвращаем true
+                      if (!animatorStateInfo.IsName("freezing"))
+                      {
+                          Fish.GetComponent<Animator>().Play("freezing");
+                      }*/
+                Invoke("hot", 1f);
+            }
+        }
+        
+
+
+    }
+
+    void hot()
+    {
+        Fish.GetComponent<Animator>().Play("hot");
+        Invoke("Idle", 1f);
+    }
+    void Idle()
+    {
+        Fish.GetComponent<Animator>().Play("idle");
+    }
     public void Start1()
     {
         if (!B_Check)
@@ -32,7 +72,7 @@ public class Recolocation:MonoBehaviour {
             sp.Close();
 
         }
-
+    
        InvokeRepeating("Resolocation", 0.1f, 0.132f);
        // Process.Start("C:\\Users/lord1/source/repos/ConsoleApp15/ConsoleApp15/bin/Debug/ConsoleApp15.exe");
        // Invoke("Resolocation", 0.1f);
