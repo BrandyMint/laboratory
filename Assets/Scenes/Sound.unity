@@ -9491,7 +9491,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &976490642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11966,6 +11966,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1476952592}
   - component: {fileID: 1476952593}
+  - component: {fileID: 1476952594}
   m_Layer: 0
   m_Name: Pointer
   m_TagString: Untagged
@@ -11980,13 +11981,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1476952591}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.048, y: 0.023, z: 0}
-  m_LocalScale: {x: 0.8425703, y: 0.84627897, z: 0.8532357}
+  m_LocalRotation: {x: 0, y: 0, z: -0.023646977, w: 0.9997204}
+  m_LocalPosition: {x: -3.2, y: -1.01, z: 0.01}
+  m_LocalScale: {x: 0.47310323, y: 0.47518566, z: 0.47909188}
   m_Children: []
   m_Father: {fileID: 976490644}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.71}
 --- !u!212 &1476952593
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12025,7 +12026,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 30
-  m_Sprite: {fileID: 21300000, guid: 6b631b43eb3ecaf4882b5a0215e20c41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4f866fa1d3555334f8b671dda10e511b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -12035,7 +12036,19 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
+--- !u!114 &1476952594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1476952591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fd253e20643b2945a24d04fe9fdaa7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1485299868
 GameObject:
   m_ObjectHideFlags: 0
@@ -13856,7 +13869,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1748774114
 Transform:
   m_ObjectHideFlags: 0
@@ -14984,7 +14997,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1914402438
 Transform:
   m_ObjectHideFlags: 0
@@ -15814,6 +15827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dbValText: {fileID: 1671401801}
   pitchValText: {fileID: 1531030538}
+  pointerBehaviour: {fileID: 1476952594}
   sensitivity: 100
   loudness: 0
   rmsVal: 0

@@ -7,6 +7,7 @@ public class SoundReader02 : MonoBehaviour
 {
 	public Text dbValText;
 	public Text pitchValText;
+	public PointerBehaviour pointerBehaviour;
 
 	public float sensitivity = 100;
 	public float loudness = 0;
@@ -58,6 +59,8 @@ public class SoundReader02 : MonoBehaviour
 
 		dbValText.text = $"Volume: {dbVal.ToString("F1")} dB";
 		pitchValText.text = $"Frequency: {pitchVal.ToString("F0")} Hz";
+
+		pointerBehaviour.Rotate(dbVal * -1);
 	}
 
 	float GetAveragedVolume()
