@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/chooseScene.unity
     guid: 7a40c9278e6f1e442b48305194d2b152
   - enabled: 1
-    path: Assets/Scenes/scene_temper.unity
+    path: Assets/Scenes/Sound.unity
     guid: 90069d682490fa149b909bb217277d79
   - enabled: 1
     path: Assets/Scenes/Setting.unity
