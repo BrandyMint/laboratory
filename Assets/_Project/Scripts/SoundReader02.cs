@@ -69,9 +69,6 @@ public class SoundReader02 : MonoBehaviour
         dbValText.text = $"Volume: {dbVal.ToString("F1")} dB";
         pitchValText.text = $"Frequency: {pitchVal.ToString("F0")} Hz";
 
-        //dbValText.text = $"VolumeAS: {_audio.volume} dB";
-        //pitchValText.text = $"FrequencyAS: {_audio.pitch} Hz";
-
         pointerBehaviour.Rotate(dbVal * -1);
     }
 

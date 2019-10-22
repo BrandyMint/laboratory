@@ -21,7 +21,7 @@ public class VolumeSlider : MonoBehaviour
     {
         //text.text = $"{obj[1]} Гц";
 
-        slider.value = obj[0];
+        slider.value = Mathf.Lerp(slider.value, obj[0], 2 * Time.deltaTime);
     }
 
     private void OnDestroy()
