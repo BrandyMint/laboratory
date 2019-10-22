@@ -45,11 +45,11 @@ public class SoundReader02 : MonoBehaviour
 
 	void Update()
 	{
-		loudness = GetAveragedVolume() * sensitivity;
-		if (loudness > 1)
-		{
-			Debug.Log($"loudness: {loudness}");
-		}
+		//loudness = GetAveragedVolume() * sensitivity;
+		//if (loudness > 1)
+		//{
+		//	Debug.Log($"loudness: {loudness}");
+		//}
 
 		AnalyzeSound();
 
