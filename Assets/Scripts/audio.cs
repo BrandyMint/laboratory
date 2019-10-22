@@ -17,7 +17,7 @@ public class audio : MonoBehaviour
     public bool sound_2;
     public bool sound_3;
     public bool sound_5;
-    public SerialPort sp = new SerialPort("COM3", 1200);
+    public SerialPort sp = new SerialPort("COM3", 9600);
     public Text text;
     public bool start;
     public GameObject shkala;
@@ -126,10 +126,11 @@ public class audio : MonoBehaviour
                 k++;
                 if (k < 10)
                 {
-                  
+                    
                     sp.Open();
+                    sp.ReadTimeout = 1;
                     start = false;
-                    InvokeRepeating("Resolocation", 0.1f, 0.132f);
+                    InvokeRepeating("Resolocation", 0.1f, 0.128f);//если меньше 10 фпс ставьте повторения на 0.132f
                 }
             }
             if (k == 10)
