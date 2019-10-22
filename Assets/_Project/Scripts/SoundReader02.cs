@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class SoundReader02 : MonoBehaviour
 {
-    public static event Action<string[]> OnAnalyzeSound;
+    public static event Action<float[]> OnAnalyzeSound;
 
     public Text dbValText;
     public Text pitchValText;
@@ -28,7 +28,7 @@ public class SoundReader02 : MonoBehaviour
     private float[] _spectrum;
     private float _fSample;
 
-    string[] vals = new string[2];
+    float[] vals = new float[2];
 
     void Awake()
     {
@@ -58,7 +58,7 @@ public class SoundReader02 : MonoBehaviour
 
         AnalyzeSound();
 
-        vals = new string[] { dbVal.ToString("F1"), pitchVal.ToString("F0") };
+        vals = new float[] { dbVal, pitchVal };
 
         OnAnalyzeSound?.Invoke(vals);
 

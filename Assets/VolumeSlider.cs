@@ -1,12 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PitchDevice : MonoBehaviour
+public class VolumeSlider : MonoBehaviour
 {
-    public TextMeshProUGUI text;
+    private Slider slider;
 
+
+    private void Awake()
+    {
+        slider = GetComponent<Slider>();
+    }
     private void Start()
     {
         SoundReader02.OnAnalyzeSound += SoundReader02_OnAnalyzeSound;
@@ -14,7 +19,9 @@ public class PitchDevice : MonoBehaviour
 
     private void SoundReader02_OnAnalyzeSound(float[] obj)
     {
-        text.text = $"{obj[1].ToString("F0")} Гц";
+        //text.text = $"{obj[1]} Гц";
+
+        slider.value = obj[0];
     }
 
     private void OnDestroy()
