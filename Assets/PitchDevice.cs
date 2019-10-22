@@ -19,7 +19,7 @@ public class PitchDevice : MonoBehaviour
     {
 
 
-        //panel.DOAnchorPosY(900, 0);
+        panel.DOAnchorPosY(900, 0);
     }
 
     private void EventsManager_OnPitchDeviceSetActive(bool obj)
@@ -35,6 +35,7 @@ public class PitchDevice : MonoBehaviour
     private void OnDestroy()
     {
         SoundReader02.OnAnalyzeSound -= SoundReader02_OnAnalyzeSound;
+        EventsManager.OnPitchDeviceSetActive -= EventsManager_OnPitchDeviceSetActive;
     }
 
     public void SetActive(bool value)
@@ -45,9 +46,9 @@ public class PitchDevice : MonoBehaviour
         }
         else
         {
-            panel.DOAnchorPosY(900, 0);
+            panel.DOAnchorPosY(900, 1);
         }
-        
-        
+
+
     }
 }

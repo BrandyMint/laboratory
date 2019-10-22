@@ -8,16 +8,12 @@ public class EventsManager : MonoBehaviour
     public static event Action<bool> OnPitchDeviceSetActive;
     public static event Action<bool> OnVolumeDeviceSetActive;
 
-    bool b1, b2;
-    private void Awake()
-    {
-        
-    }
+    bool b1 = true, b2 = true;
 
     private void Start()
     {
-        PitchDeviceSetActive();
-        VolumeDeviceSetActive();
+        //PitchDeviceSetActive();
+        //VolumeDeviceSetActive();
     }
 
     public void PitchDeviceSetActive()
