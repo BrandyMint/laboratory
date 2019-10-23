@@ -1,26 +1,33 @@
 ﻿using System;
 using UnityEngine;
 
-public enum Sounds
+public enum LessonStepID
 {
-    bubbleClick,
-    bubbleExplosion,
-    feedFishGood,
-	feedFishBad,
-    fishDead,
-	fishHappy,
-	fishSpawn,
-	backgroundMusic,
-	fishSwap,
-	tubeProduceBubble,
-	bubbleSwipe,
-	evilFishCome
+    step01,
+    step02,
+    step03,
+    step04,
+    step05,
+    step06,
+    step07,
+    step08,
+    step09,
+    step10,
+    step11,
+    step12
 }
 
 [Serializable]
 public struct Sound
 {
-    public Sounds name;
-    public AudioClip audioClip;
+    public LessonStepID lessonStepID;
+    public AudioClip[] audioClips;
     public float volume;
+
+    public Sound(LessonStepID lessonStepID, AudioClip[] audioClips, float volume)
+    {
+        this.lessonStepID = lessonStepID;
+        this.audioClips = audioClips;
+        this.volume = 1;
+    }
 }
