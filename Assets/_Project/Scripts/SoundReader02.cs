@@ -62,9 +62,9 @@ public class SoundReader02 : MonoBehaviour
 
         OnAnalyzeSound?.Invoke(vals);
 
-        Debug.Log("RMS: " + rmsVal.ToString("F2"));
-        Debug.Log(dbVal.ToString("F1") + " dB");
-        Debug.Log(pitchVal.ToString("F0") + " Hz");
+        //Debug.Log("RMS: " + rmsVal.ToString("F2"));
+        //Debug.Log(dbVal.ToString("F1") + " dB");
+        //Debug.Log(pitchVal.ToString("F0") + " Hz");
 
         dbValText.text = $"Volume: {dbVal.ToString("F1")} dB";
         pitchValText.text = $"Frequency: {pitchVal.ToString("F0")} Hz";

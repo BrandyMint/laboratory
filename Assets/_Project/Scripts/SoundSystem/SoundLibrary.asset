@@ -15,20 +15,21 @@ MonoBehaviour:
   _data:
   - lessonStepID: 0
     audioClips:
-    - {fileID: 8300000, guid: 2f7f693fb5b273b4e85cdeb3cab1e8a4, type: 3}
-    - {fileID: 8300000, guid: 6992b28706b650544afb8a5ce37ba8da, type: 3}
+    - {fileID: 8300000, guid: 755b0e7f953d70a4fb05e5d90edc9f49, type: 3}
+    - {fileID: 8300000, guid: 755b0e7f953d70a4fb05e5d90edc9f49, type: 3}
     volume: 1
   - lessonStepID: 1
     audioClips:
-    - {fileID: 8300000, guid: 07c690e310e89744c8ddd6e058f35362, type: 3}
+    - {fileID: 8300000, guid: 755b0e7f953d70a4fb05e5d90edc9f49, type: 3}
     volume: 1
   - lessonStepID: 2
     audioClips:
-    - {fileID: 8300000, guid: 81dd9ebaa51346f4b960881b70baff2a, type: 3}
+    - {fileID: 8300000, guid: 755b0e7f953d70a4fb05e5d90edc9f49, type: 3}
     volume: 1
-  - lessonStepID: 0
-    audioClips: []
-    volume: 0
+  - lessonStepID: 3
+    audioClips:
+    - {fileID: 8300000, guid: 755b0e7f953d70a4fb05e5d90edc9f49, type: 3}
+    volume: 1
   - lessonStepID: 0
     audioClips: []
     volume: 0
