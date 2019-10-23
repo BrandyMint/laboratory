@@ -6,15 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Project/Scenes/chooseScene.unity
+    path: Assets/_Project/_Scenes/chooseScene.unity
     guid: 7a40c9278e6f1e442b48305194d2b152
   - enabled: 1
-    path: Assets/_Project/Scenes/Sound.unity
-    guid: 90069d682490fa149b909bb217277d79
-  - enabled: 1
-    path: Assets/_Project/Scenes/Setting.unity
+    path: Assets/_Project/_Scenes/Setting.unity
     guid: 8f56f2dfa8f09434abae5b76383fc82c
   - enabled: 1
-    path: Assets/_Project/Scenes/light.unity
+    path: Assets/_Project/_Scenes/scene_temper.unity
+    guid: 1b3ed50166c40ec4b827c83420178468
+  - enabled: 1
+    path: Assets/_Project/_Scenes/light.unity
     guid: 806bf594728e4f244b09feb3be8c8d03
+  - enabled: 1
+    path: Assets/_Project/_Scenes/Sound.unity
+    guid: 90069d682490fa149b909bb217277d79
   m_configObjects: {}
