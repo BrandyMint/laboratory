@@ -924,35 +924,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 32881134178940708}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99980a5a43eb62c47b01d2aa98e025c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cba2d7ed2b757c4babc046688231783, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 32881134178940704}
+  source: {fileID: 0}
   audioo:
-  - {fileID: 8300000, guid: f50333f14d2f835429b78ba47889be5b, type: 3}
-  - {fileID: 8300000, guid: 7a4982764fbe4f442a0ef3fcdccdb993, type: 3}
-  - {fileID: 8300000, guid: 291f49136c87d264e945103c3aa8d1b3, type: 3}
-  - {fileID: 8300000, guid: 0d465148ad7b0134aa6e9a5bb2a33fa1, type: 3}
-  - {fileID: 8300000, guid: 57ed0aa1ce03bdf46b052c12c7cd65f9, type: 3}
-  - {fileID: 8300000, guid: cd51713b2f6161a47a02e371c9c9b8e5, type: 3}
-  - {fileID: 8300000, guid: 7883321f3d0275346aaab6d7e515658f, type: 3}
-  - {fileID: 8300000, guid: b523d1a657fecdc4192a61d06e069c9d, type: 3}
-  - {fileID: 8300000, guid: e322622e539f31142adfb891d6d481c0, type: 3}
-  - {fileID: 8300000, guid: dfca7eb6c23ebe74eb698cda6e179344, type: 3}
-  - {fileID: 8300000, guid: 1c24074005a2ef644a7e7751b3cebe18, type: 3}
-  - {fileID: 8300000, guid: be34834a1726f5346adbe5ad9162e02f, type: 3}
-  - {fileID: 8300000, guid: fde74958a730e6944af2032e937ab6ec, type: 3}
-  - {fileID: 8300000, guid: 2b97a71a28f963a43a89d9e03303bd32, type: 3}
-  - {fileID: 8300000, guid: 502f7a6fda4a01a47993abde8d982558, type: 3}
-  - {fileID: 8300000, guid: 81e16c7c68e2ea3488a92a55300a65a7, type: 3}
-  - {fileID: 8300000, guid: 7e84c4900a0209846a245333b9766872, type: 3}
-  - {fileID: 8300000, guid: f1128ff5c40aa634ead95ae9fa6c3675, type: 3}
-  - {fileID: 8300000, guid: 4fbb18041c7baba49a220902e62b0c4a, type: 3}
-  - {fileID: 8300000, guid: 4fbb18041c7baba49a220902e62b0c4a, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   sound_1: 0
   hotfree: 0
   Fish: {fileID: 0}
-  girl: {fileID: 32881134178940708}
+  girl: {fileID: 0}
   sound_2: 0
   sound_3: 0
   sound_5: 0
