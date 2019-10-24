@@ -16075,6 +16075,36 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 4963090017447128812, guid: 64b0f6bb452426b4cafc4378f3a166f1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5324964748846128409, guid: 64b0f6bb452426b4cafc4378f3a166f1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6326722940419990618, guid: 64b0f6bb452426b4cafc4378f3a166f1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340094982546562269, guid: 64b0f6bb452426b4cafc4378f3a166f1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5017234116602518744, guid: 64b0f6bb452426b4cafc4378f3a166f1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4783533616089339745, guid: 64b0f6bb452426b4cafc4378f3a166f1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64b0f6bb452426b4cafc4378f3a166f1, type: 3}
 --- !u!1 &1834544632
