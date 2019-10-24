@@ -7,9 +7,14 @@ using UnityEngine;
 public class GameManager : MonoSingleton<GameManager>
 {
     public static event Action OnStepFinished;
+    public static event Action<bool> OnSpeechActive;
+    public static event Action OnLessonStart;
+
+    public static GameObject instance;
 
     public SoundController soundController;
-    public Animator girlAnimator;
+    public GameObject girlTemplate;
+
     public DeviceManager deviceManager;
     private CompositeDisposable _disposables;
 
@@ -21,6 +26,17 @@ public class GameManager : MonoSingleton<GameManager>
     private void OnEnable()
     {
         _disposables = new CompositeDisposable();
+    }
+
+    private void Start()
+    {
+        CreateGirl();
+        OnLessonStart?.Invoke();
+    }
+
+    public void StartLesson()
+    {
+        OnLessonStart?.Invoke();
     }
 
     private void OnDisable()
@@ -37,8 +53,6 @@ public class GameManager : MonoSingleton<GameManager>
         {
             case LessonStepID.step01:
                 {
-                    //girlAnimator.SetBool("Speech", true);
-                    //soundController.PlaySound1(step.id, StepFinishedCallback);
                     RunStep(step);
                 }
                 break;
@@ -108,8 +122,8 @@ public class GameManager : MonoSingleton<GameManager>
                 break;
             case LessonStepID.step14:
                 {
-                    girlAnimator.SetBool("Speech", true);
-                    soundController.PlaySound1(step.id, () => { girlAnimator.SetBool("Speech", false); });
+                    OnSpeechActive?.Invoke(true);
+                    soundController.PlaySound1(step.id, () => { OnSpeechActive?.Invoke(false); });
                 }
                 break;
             default:
@@ -117,12 +131,20 @@ public class GameManager : MonoSingleton<GameManager>
         }
     }
 
+    void CreateGirl()
+    {
+        Instantiate(girlTemplate);
+
+    }
+
     void RunStep(LessonStep step)
     {
-        girlAnimator.SetBool("Speech", true);
-        soundController.PlaySound1(step.id, () =>
+        OnSpeechActive?.Invoke(true);
+
+        SoundController.Instance.PlaySound1(step.id, () =>
         {
-            girlAnimator.SetBool("Speech", false);
+            OnSpeechActive?.Invoke(false);
+
             Observable.Timer(System.TimeSpan.FromSeconds(step.actionTime))
                       .Subscribe(_ => OnStepFinished?.Invoke())
                       .AddTo(_disposables);

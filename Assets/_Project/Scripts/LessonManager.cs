@@ -13,23 +13,26 @@ public class LessonManager : MonoBehaviour
     private void Awake()
     {
         GameManager.OnStepFinished += GameManager_OnStepFinished;
+        GameManager.OnLessonStart += GameManager_OnLessonStart;
+    }
+
+
+    private void OnDestroy()
+    {
+        GameManager.OnStepFinished -= GameManager_OnStepFinished;
+        GameManager.OnLessonStart -= GameManager_OnLessonStart;
+    }
+    private void GameManager_OnLessonStart()
+    {
+        _currentStep = stepList.Data[0];
+        RunStep(_currentStep);
     }
 
     private void GameManager_OnStepFinished()
     {
-
         var nextStepIndex = stepList.Data.IndexOf(_currentStep) + 1;
         _currentStep = stepList.Data[nextStepIndex];
 
-        RunStep(_currentStep);
-
-        //Observable.Timer(System.TimeSpan.FromSeconds(2))
-        //    .Subscribe(_ => { Debug.Log("After delay"); RunStep(_currentStep); });
-    }
-
-    private void Start()
-    {
-        _currentStep = stepList.Data[0];
         RunStep(_currentStep);
     }
 

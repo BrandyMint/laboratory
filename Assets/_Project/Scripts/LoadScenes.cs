@@ -1,15 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-
-public class LoadScenes : MonoBehaviour {
-
-	
-
+public class LoadScenes : MonoBehaviour
+{
     public void LoadScene1(int n)
     {
-        Application.LoadLevel(n);
+        SceneManager.LoadScene(n, LoadSceneMode.Single);
     }
     public void LoadSceneMain()
     {
