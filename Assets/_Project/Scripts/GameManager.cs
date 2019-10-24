@@ -11,10 +11,24 @@ public class GameManager : MonoSingleton<GameManager>
     public SoundController soundController;
     public Animator girlAnimator;
     public DeviceManager deviceManager;
+    private CompositeDisposable _disposables;
 
     private void Awake()
     {
         LessonManager.OnStepRun += LessonManager_OnStepRun;
+    }
+
+    private void OnEnable()
+    {
+        _disposables = new CompositeDisposable();
+    }
+
+    private void OnDisable()
+    {
+        if (_disposables != null)
+        {
+            _disposables.Dispose();
+        }
     }
 
     private void LessonManager_OnStepRun(LessonStep step)
@@ -23,43 +37,45 @@ public class GameManager : MonoSingleton<GameManager>
         {
             case LessonStepID.step01:
                 {
-                    girlAnimator.SetBool("Speech", true);
-                    soundController.PlaySound1(step.id, StepFinishedCallback);
+                    //girlAnimator.SetBool("Speech", true);
+                    //soundController.PlaySound1(step.id, StepFinishedCallback);
+                    RunStep(step);
                 }
                 break;
             case LessonStepID.step02:
                 {
                     deviceManager.volumeDevice.SetActive(true, () =>
                     {
-                        FinishStep(step);
+                        Observable.Timer(System.TimeSpan.FromSeconds(1))
+                                  .Subscribe(_ => RunStep(step))
+                                  .AddTo(_disposables);
                     });
 
                 }
                 break;
             case LessonStepID.step03:
                 {
-                    FinishStep(step);
+                    RunStep(step);
                 }
                 break;
             case LessonStepID.step04:
                 {
-                    FinishStep(step);
+                    RunStep(step);
                 }
                 break;
             case LessonStepID.step05:
                 {
-                    FinishStep(step);
+                    RunStep(step);
                 }
                 break;
             case LessonStepID.step06:
                 {
-                    FinishStep(step);
+                    RunStep(step);
                 }
                 break;
             case LessonStepID.step07:
                 {
-                    FinishStep(step);
-
+                    RunStep(step);
                 }
                 break;
             case LessonStepID.step08:
@@ -68,54 +84,48 @@ public class GameManager : MonoSingleton<GameManager>
                     {
                         deviceManager.pitchDevice.SetActive(true, () =>
                         {
-                            FinishStep(step);
+                            Observable.Timer(System.TimeSpan.FromSeconds(1))
+                                  .Subscribe(_ => RunStep(step))
+                                  .AddTo(_disposables);
                         });
                     });
                 }
                 break;
             case LessonStepID.step09:
-                FinishStep(step);
+                RunStep(step);
                 break;
             case LessonStepID.step10:
-                FinishStep(step);
+                RunStep(step);
                 break;
             case LessonStepID.step11:
-                FinishStep(step);
+                RunStep(step);
                 break;
             case LessonStepID.step12:
-                FinishStep(step);
+                RunStep(step);
                 break;
             case LessonStepID.step13:
-                FinishStep(step);
+                RunStep(step);
                 break;
             case LessonStepID.step14:
                 {
                     girlAnimator.SetBool("Speech", true);
                     soundController.PlaySound1(step.id, () => { girlAnimator.SetBool("Speech", false); });
-
-                    //Observable.Timer(System.TimeSpan.FromSeconds(step.actionTime))
-                    //.Subscribe(_ => OnStepFinished?.Invoke());
                 }
                 break;
             default:
                 break;
         }
-
     }
 
-    void FinishStep(LessonStep step)
+    void RunStep(LessonStep step)
     {
         girlAnimator.SetBool("Speech", true);
-        soundController.PlaySound1(step.id, () => { girlAnimator.SetBool("Speech", false); });
-
-        Observable.Timer(System.TimeSpan.FromSeconds(step.actionTime))
-        .Subscribe(_ => OnStepFinished?.Invoke());
-    }
-
-    void StepFinishedCallback()
-    {
-        girlAnimator.SetBool("Speech", false);
-
-        OnStepFinished?.Invoke();
+        soundController.PlaySound1(step.id, () =>
+        {
+            girlAnimator.SetBool("Speech", false);
+            Observable.Timer(System.TimeSpan.FromSeconds(step.actionTime))
+                      .Subscribe(_ => OnStepFinished?.Invoke())
+                      .AddTo(_disposables);
+        });
     }
 }

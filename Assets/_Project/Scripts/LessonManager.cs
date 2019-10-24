@@ -21,8 +21,10 @@ public class LessonManager : MonoBehaviour
         var nextStepIndex = stepList.Data.IndexOf(_currentStep) + 1;
         _currentStep = stepList.Data[nextStepIndex];
 
-        Observable.Timer(System.TimeSpan.FromSeconds(2))
-            .Subscribe(_ => { Debug.Log("After delay"); RunStep(_currentStep); });
+        RunStep(_currentStep);
+
+        //Observable.Timer(System.TimeSpan.FromSeconds(2))
+        //    .Subscribe(_ => { Debug.Log("After delay"); RunStep(_currentStep); });
     }
 
     private void Start()

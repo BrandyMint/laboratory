@@ -64,14 +64,14 @@ MonoBehaviour:
     volume: 1
   - lessonStepID: 12
     audioClips:
-    - {fileID: 8300000, guid: 3c43a7a4b180a2f4197e59972a0d5571, type: 3}
+    - {fileID: 8300000, guid: 755b0e7f953d70a4fb05e5d90edc9f49, type: 3}
     volume: 1
   - lessonStepID: 13
     audioClips:
     - {fileID: 8300000, guid: 755b0e7f953d70a4fb05e5d90edc9f49, type: 3}
     - {fileID: 8300000, guid: 755b0e7f953d70a4fb05e5d90edc9f49, type: 3}
     - {fileID: 8300000, guid: 755b0e7f953d70a4fb05e5d90edc9f49, type: 3}
-    volume: 0
+    volume: 1
   - lessonStepID: 0
     audioClips: []
     volume: 0
