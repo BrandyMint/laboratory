@@ -30,30 +30,38 @@ MonoBehaviour:
     audioClips:
     - {fileID: 8300000, guid: 755b0e7f953d70a4fb05e5d90edc9f49, type: 3}
     volume: 1
-  - lessonStepID: 0
-    audioClips: []
-    volume: 0
-  - lessonStepID: 0
-    audioClips: []
-    volume: 0
-  - lessonStepID: 0
-    audioClips: []
-    volume: 0
-  - lessonStepID: 0
-    audioClips: []
-    volume: 0
-  - lessonStepID: 0
-    audioClips: []
-    volume: 0
-  - lessonStepID: 0
-    audioClips: []
-    volume: 0
-  - lessonStepID: 0
-    audioClips: []
-    volume: 0
-  - lessonStepID: 0
-    audioClips: []
-    volume: 0
+  - lessonStepID: 4
+    audioClips:
+    - {fileID: 8300000, guid: 755b0e7f953d70a4fb05e5d90edc9f49, type: 3}
+    volume: 1
+  - lessonStepID: 5
+    audioClips:
+    - {fileID: 8300000, guid: 755b0e7f953d70a4fb05e5d90edc9f49, type: 3}
+    volume: 1
+  - lessonStepID: 6
+    audioClips:
+    - {fileID: 8300000, guid: 755b0e7f953d70a4fb05e5d90edc9f49, type: 3}
+    volume: 1
+  - lessonStepID: 7
+    audioClips:
+    - {fileID: 8300000, guid: 755b0e7f953d70a4fb05e5d90edc9f49, type: 3}
+    volume: 1
+  - lessonStepID: 8
+    audioClips:
+    - {fileID: 8300000, guid: 755b0e7f953d70a4fb05e5d90edc9f49, type: 3}
+    volume: 1
+  - lessonStepID: 9
+    audioClips:
+    - {fileID: 8300000, guid: 755b0e7f953d70a4fb05e5d90edc9f49, type: 3}
+    volume: 1
+  - lessonStepID: 10
+    audioClips:
+    - {fileID: 8300000, guid: 755b0e7f953d70a4fb05e5d90edc9f49, type: 3}
+    volume: 1
+  - lessonStepID: 11
+    audioClips:
+    - {fileID: 8300000, guid: 755b0e7f953d70a4fb05e5d90edc9f49, type: 3}
+    volume: 1
   - lessonStepID: 0
     audioClips: []
     volume: 0

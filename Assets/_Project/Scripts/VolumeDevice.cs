@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using System;
 
 public class VolumeDevice : MonoBehaviour
 {
@@ -33,15 +34,15 @@ public class VolumeDevice : MonoBehaviour
         _slider.value = Mathf.Lerp(_slider.value, obj[0], 2 * Time.deltaTime);
     }
 
-    public void SetActive(bool value)
+    public void SetActive(bool value, TweenCallback callback = null)
     {
         if (value)
         {
-            panel.DOAnchorPosX(-233, 1);
+            panel.DOAnchorPosX(-233, 1).OnComplete(callback);
         }
         else
         {
-            panel.DOAnchorPosX(-1685, 1);
+            panel.DOAnchorPosX(-1685, 1).OnComplete(callback);
         }
 
 

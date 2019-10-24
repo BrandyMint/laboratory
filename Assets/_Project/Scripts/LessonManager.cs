@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
 
@@ -25,9 +23,6 @@ public class LessonManager : MonoBehaviour
 
         Observable.Timer(System.TimeSpan.FromSeconds(2))
             .Subscribe(_ => { Debug.Log("After delay"); RunStep(_currentStep); });
-
-        //RunStep(_currentStep);
-
     }
 
     private void Start()
