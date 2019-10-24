@@ -17,81 +17,99 @@ public class GameManager : MonoSingleton<GameManager>
         LessonManager.OnStepRun += LessonManager_OnStepRun;
     }
 
-    private void LessonManager_OnStepRun(LessonStep obj)
+    private void LessonManager_OnStepRun(LessonStep step)
     {
-        switch (obj.id)
+        switch (step.id)
         {
             case LessonStepID.step01:
                 {
                     girlAnimator.SetBool("Speech", true);
-                    soundController.PlaySound1(obj.id, StepFinishedCallback);
+                    soundController.PlaySound1(step.id, StepFinishedCallback);
                 }
                 break;
             case LessonStepID.step02:
                 {
                     deviceManager.volumeDevice.SetActive(true, () =>
                     {
-                        girlAnimator.SetBool("Speech", true);
-                        soundController.PlaySound1(obj.id,()=> { girlAnimator.SetBool("Speech", false); });
-
-                        Observable.Timer(System.TimeSpan.FromSeconds(4))
-                        .Subscribe(_ => OnStepFinished?.Invoke());
+                        FinishStep(step);
                     });
 
                 }
                 break;
             case LessonStepID.step03:
                 {
-                    girlAnimator.SetBool("Speech", true);
-                    soundController.PlaySound1(obj.id, () => { girlAnimator.SetBool("Speech", false); });
-
-                    Observable.Timer(System.TimeSpan.FromSeconds(4))
-                    .Subscribe(_ => OnStepFinished?.Invoke());
+                    FinishStep(step);
                 }
                 break;
             case LessonStepID.step04:
                 {
-                    girlAnimator.SetBool("Speech", true);
-                    soundController.PlaySound1(obj.id, () => { girlAnimator.SetBool("Speech", false); });
-
-                    Observable.Timer(System.TimeSpan.FromSeconds(4))
-                    .Subscribe(_ => OnStepFinished?.Invoke());
+                    FinishStep(step);
                 }
                 break;
             case LessonStepID.step05:
                 {
-                    girlAnimator.SetBool("Speech", true);
-                    soundController.PlaySound1(obj.id, () => { girlAnimator.SetBool("Speech", false); });
-
-                    Observable.Timer(System.TimeSpan.FromSeconds(4))
-                    .Subscribe(_ => OnStepFinished?.Invoke());
+                    FinishStep(step);
                 }
                 break;
             case LessonStepID.step06:
                 {
-                    girlAnimator.SetBool("Speech", true);
-                    soundController.PlaySound1(obj.id, () => { girlAnimator.SetBool("Speech", false); });
-
-                    Observable.Timer(System.TimeSpan.FromSeconds(4))
-                    .Subscribe(_ => OnStepFinished?.Invoke());
+                    FinishStep(step);
                 }
                 break;
             case LessonStepID.step07:
+                {
+                    FinishStep(step);
+
+                }
                 break;
             case LessonStepID.step08:
+                {
+                    deviceManager.volumeDevice.SetActive(false, () =>
+                    {
+                        deviceManager.pitchDevice.SetActive(true, () =>
+                        {
+                            FinishStep(step);
+                        });
+                    });
+                }
                 break;
             case LessonStepID.step09:
+                FinishStep(step);
                 break;
             case LessonStepID.step10:
+                FinishStep(step);
                 break;
             case LessonStepID.step11:
+                FinishStep(step);
                 break;
             case LessonStepID.step12:
+                FinishStep(step);
+                break;
+            case LessonStepID.step13:
+                FinishStep(step);
+                break;
+            case LessonStepID.step14:
+                {
+                    girlAnimator.SetBool("Speech", true);
+                    soundController.PlaySound1(step.id, () => { girlAnimator.SetBool("Speech", false); });
+
+                    //Observable.Timer(System.TimeSpan.FromSeconds(step.actionTime))
+                    //.Subscribe(_ => OnStepFinished?.Invoke());
+                }
                 break;
             default:
                 break;
         }
 
+    }
+
+    void FinishStep(LessonStep step)
+    {
+        girlAnimator.SetBool("Speech", true);
+        soundController.PlaySound1(step.id, () => { girlAnimator.SetBool("Speech", false); });
+
+        Observable.Timer(System.TimeSpan.FromSeconds(step.actionTime))
+        .Subscribe(_ => OnStepFinished?.Invoke());
     }
 
     void StepFinishedCallback()

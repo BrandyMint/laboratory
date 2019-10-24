@@ -14,7 +14,17 @@ public enum LessonStepID
     step09,
     step10,
     step11,
-    step12
+    step12,
+    step13,
+    step14,
+    step15,
+    step16,
+    step17,
+    step18,
+    step19,
+    step20,
+    step21,
+    step22
 }
 
 [Serializable]

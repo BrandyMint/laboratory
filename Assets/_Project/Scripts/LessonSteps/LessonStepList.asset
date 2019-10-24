@@ -15,35 +15,67 @@ MonoBehaviour:
   _data:
   - id: 0
     animationID: 0
+    actionTime: 4
   - id: 1
     animationID: 0
+    actionTime: 4
   - id: 2
     animationID: 0
+    actionTime: 4
   - id: 3
     animationID: 0
+    actionTime: 4
   - id: 4
     animationID: 0
+    actionTime: 4
   - id: 5
     animationID: 0
+    actionTime: 4
   - id: 6
     animationID: 0
+    actionTime: 4
   - id: 7
     animationID: 0
+    actionTime: 1
   - id: 8
     animationID: 0
+    actionTime: 4
   - id: 9
     animationID: 0
+    actionTime: 4
   - id: 10
     animationID: 0
+    actionTime: 4
   - id: 11
     animationID: 0
+    actionTime: 4
+  - id: 12
+    animationID: 0
+    actionTime: 2
+  - id: 13
+    animationID: 0
+    actionTime: 4
   - id: 4
     animationID: 0
+    actionTime: 0
   - id: 4
     animationID: 0
+    actionTime: 0
   - id: 4
     animationID: 0
+    actionTime: 0
   - id: 4
     animationID: 0
+    actionTime: 0
   - id: 4
     animationID: 0
+    actionTime: 0
+  - id: 4
+    animationID: 0
+    actionTime: 0
+  - id: 4
+    animationID: 0
+    actionTime: 0
+  - id: 4
+    animationID: 0
+    actionTime: 0

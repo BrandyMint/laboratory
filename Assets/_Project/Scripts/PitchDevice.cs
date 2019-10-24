@@ -38,15 +38,15 @@ public class PitchDevice : MonoBehaviour
         EventsManager.OnPitchDeviceSetActive -= EventsManager_OnPitchDeviceSetActive;
     }
 
-    public void SetActive(bool value)
+    public void SetActive(bool value, TweenCallback callback = null)
     {
         if (value)
         {
-            panel.DOAnchorPosY(2.5f, 1);
+            panel.DOAnchorPosY(2.5f, 1).OnComplete(callback); ;
         }
         else
         {
-            panel.DOAnchorPosY(900, 1);
+            panel.DOAnchorPosY(900, 1).OnComplete(callback); ;
         }
 
 

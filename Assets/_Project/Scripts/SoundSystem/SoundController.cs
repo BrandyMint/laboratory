@@ -31,7 +31,6 @@ public class SoundController : MonoBehaviour
     {
         Sound sound = soundLibrary.Data.Find(item => item.lessonStepID == soundName);
         audioSource.volume = sound.volume;
-        //audioSource.PlayOneShot(sound.audioClip);
 
         foreach (var item in sound.audioClips)
         {
