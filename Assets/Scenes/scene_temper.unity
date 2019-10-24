@@ -6695,6 +6695,7 @@ MonoBehaviour:
   sound_9: 0
   f: 0
   sound_10: 0
+  chea1: 0
 --- !u!1 &479813999
 GameObject:
   m_ObjectHideFlags: 0
