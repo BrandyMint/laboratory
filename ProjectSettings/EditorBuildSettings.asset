@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/_Project/_Scenes/Menu.unity
     guid: 7a40c9278e6f1e442b48305194d2b152
   - enabled: 1
+    path: Assets/_Project/_Scenes/ElectricityRoom.unity
+    guid: 385a1b8ec874b5c4c851ec65784548d0
+  - enabled: 1
     path: Assets/_Project/_Scenes/TemperatureRoom.unity
     guid: 90069d682490fa149b909bb217277d79
   - enabled: 1
@@ -17,9 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Project/_Scenes/SoundRoom.unity
     guid: 67917896f6728364493ad6e148b5c674
-  - enabled: 1
-    path: Assets/_Project/_Scenes/ElectricityRoom.unity
-    guid: 385a1b8ec874b5c4c851ec65784548d0
   - enabled: 1
     path: Assets/_Project/_Scenes/Setting.unity
     guid: 8f56f2dfa8f09434abae5b76383fc82c
