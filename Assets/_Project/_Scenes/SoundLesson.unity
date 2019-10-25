@@ -9743,7 +9743,7 @@ MonoBehaviour:
   m_text: New Text
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: de5abf8b5897f7d448e5c549e945cdee, type: 2}
-  m_sharedMaterial: {fileID: -938220534113085133, guid: de5abf8b5897f7d448e5c549e945cdee,
+  m_sharedMaterial: {fileID: 3910459016184920962, guid: de5abf8b5897f7d448e5c549e945cdee,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
