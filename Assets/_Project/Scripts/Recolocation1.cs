@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 public class Recolocation1 : MonoBehaviour
 {
-    public SerialPort sp = new SerialPort("COM3", 9600);
+    public SerialPortWrapper sp;
     public bool B_Check;
     public GameObject[] lamp1 = new GameObject[21];
     public GameObject[] gg = new GameObject[5];
@@ -39,7 +39,10 @@ public class Recolocation1 : MonoBehaviour
 
 
     public Text text1;
-
+    void Start()
+    {
+        sp.BaudRate = 9600;
+    }
 
     void Update()
     {
@@ -121,7 +124,7 @@ public class Recolocation1 : MonoBehaviour
             sp.Open();
             sp.ReadTimeout = 1;
             girl.GetComponent<Animator>().Play("idle 0");
-            InvokeRepeating("Resolocation", 0.1f, 0.1f);
+            InvokeRepeating("Resolocation", 0.01f, 0.01f);
             Invoke("stopi", 15f);
             start = false;
         }
@@ -147,7 +150,7 @@ public class Recolocation1 : MonoBehaviour
         
          string   s = sp.ReadLine();
  
-            s = s.Substring(s.IndexOf('L') + 1, s.IndexOf('T') - s.IndexOf('L') - 1);
+            s = s.Substring(s.IndexOf('i') + 1, s.IndexOf(';') - s.IndexOf('i') - 1);
             int f = (Convert.ToInt32(s));
 
             text1.text = f.ToString();
