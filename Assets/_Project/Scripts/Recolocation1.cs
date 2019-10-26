@@ -135,6 +135,8 @@ public class Recolocation1 : MonoBehaviour
         gg1[0].SetActive(false);
         gg1[1].SetActive(true);
         gg1[2].SetActive(true);
+        gg1[3].SetActive(false);
+        gg1[4].SetActive(true);
         sp.Close();
         CancelInvoke("Resolocation");
         

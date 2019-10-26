@@ -92,11 +92,12 @@ public class Elek : MonoBehaviour
 
         {
             string s = sp.ReadLine();
+            
             s = s.Substring(s.IndexOf('v') + 1, s.IndexOf(';') - s.IndexOf('v') - 1);
-            f = (float.Parse(s.Substring(0, s.IndexOf('.'))) / 100);
-            shkala.transform.rotation= Quaternion.Euler(0, 0, -f); 
+            f = (float.Parse(s) / 100);
+            shkala.transform.rotation= Quaternion.Euler(0, 0, -f*5); 
         
-            text.text = (float.Parse(s.Substring(0, s.IndexOf('.'))) / 500).ToString();
+            text.text = (f.ToString());
         }
     }
         }
