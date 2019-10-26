@@ -156,7 +156,7 @@ public class Recolocation1 : MonoBehaviour
             int f = (Convert.ToInt32(s));
 
             text1.text = f.ToString();
-            int n = f / 30;
+            int n = f / 60;
             if (n >= 0)
             {
                 if (n <= 21)
