@@ -17,7 +17,7 @@ public class audio : MonoBehaviour
     public bool sound_2;
     public bool sound_3;
     public bool sound_5;
-    public SerialPort sp = new SerialPort("COM3", 9600);
+    public SerialPortWrapper sp;
     public Text text;
     public bool start;
     public GameObject shkala;
@@ -38,7 +38,8 @@ public class audio : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        sp.BaudRate = 9600;
+        
     }
 
     // Update is called once per frame
@@ -130,7 +131,7 @@ public class audio : MonoBehaviour
                     sp.Open();
                     sp.ReadTimeout = 1;
                     start = false;
-                    InvokeRepeating("Resolocation", 0.1f, 0.128f);//если меньше 10 фпс ставьте повторения на 0.132f
+                    InvokeRepeating("Resolocation", 0.1f, 0.1f);//если меньше 10 фпс ставьте повторения на 0.132f
                 }
             }
             if (k == 10)
@@ -196,11 +197,12 @@ public class audio : MonoBehaviour
 
         {
             string s = sp.ReadLine();
-            s = s.Substring(s.IndexOf('T') + 1, s.IndexOf('E') - s.IndexOf('T') - 1);
-            f = (float.Parse(s.Substring(0, s.IndexOf('.'))) / 100);
+           
+            s = s.Substring(s.IndexOf("t") + 1, s.IndexOf(";") - s.IndexOf("t") - 1);
+            f = (float.Parse(s) /100) ;
             shkala.transform.position = Vector3.Lerp(shkala.transform.position, new Vector3(shkala.transform.position.x, (-2.68f + (f * 0.05f)/2), shkala.transform.position.z), 0.1f);
             shkala.transform.localScale = new Vector3(shkala.transform.localScale.x, 4.6737f + (f * 0.09096f)/2, shkala.transform.localScale.z);
-            text.text = (float.Parse(s.Substring(0, s.IndexOf('.'))) / 100).ToString() ;
+            text.text = (f).ToString() ;
             if ((f < 15.5) && (f > 14.5) && (k==1))
             {
                 CancelInvoke("Resolocation");

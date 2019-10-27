@@ -15,6 +15,6 @@ MonoBehaviour:
   emulatorName: Light
   template: $i{0};
   minValue: 0
-  maxValue: 2400
+  maxValue: 1200
   multiplier: 1
   period: 10

@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class Elek : MonoBehaviour
 {
     public AudioClip[] audioo = new AudioClip[20];
-    public SerialPort sp = new SerialPort("COM3", 9600);
+    public SerialPortWrapper sp;
     public bool sound_1;
     public bool sound_2;
     public bool sound_3;
@@ -24,7 +24,7 @@ public class Elek : MonoBehaviour
     float f;
     void Start()
     {
-        
+        sp.BaudRate = 9600;
     }
 
     // Update is called once per frame
@@ -92,11 +92,12 @@ public class Elek : MonoBehaviour
 
         {
             string s = sp.ReadLine();
-            s = s.Substring(s.IndexOf('T') + 1, s.IndexOf('E') - s.IndexOf('T') - 1);
-            f = (float.Parse(s.Substring(0, s.IndexOf('.'))) / 100);
-            shkala.transform.rotation= Quaternion.Euler(0, 0, -f); 
+            
+            s = s.Substring(s.IndexOf('v') + 1, s.IndexOf(';') - s.IndexOf('v') - 1);
+            f = (float.Parse(s) / 100);
+            shkala.transform.rotation= Quaternion.Euler(0, 0, -f*5); 
         
-            text.text = (float.Parse(s.Substring(0, s.IndexOf('.'))) / 500).ToString();
+            text.text = (f.ToString());
         }
     }
         }
