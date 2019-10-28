@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bluehorse.Game.Messages;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UniRx;
@@ -27,7 +28,8 @@ public class SoundController : MonoSingleton<SoundController>
 
     private void Awake()
     {
-        GameManager.OnSpeechActive += GameManager_OnSpeechActive;
+        MessageBus.OnSpeechActive.Receive += GameManager_OnSpeechActive;
+        //GameManager.OnSpeechActive += GameManager_OnSpeechActive;
     }
 
     private void GameManager_OnSpeechActive(bool obj)
@@ -42,8 +44,7 @@ public class SoundController : MonoSingleton<SoundController>
 
     private void OnDestroy()
     {
-        GameManager.OnSpeechActive -= GameManager_OnSpeechActive;
-
+        MessageBus.OnSpeechActive.Receive -= GameManager_OnSpeechActive;
 
     }
 

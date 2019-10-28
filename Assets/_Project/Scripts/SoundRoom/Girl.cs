@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Bluehorse.Game.Messages;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +10,8 @@ public class Girl : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
-        GameManager.OnSpeechActive += GameManager_OnSpeechActive;
+        //GameManager.OnSpeechActive += GameManager_OnSpeechActive;
+        MessageBus.OnSpeechActive.Receive += GameManager_OnSpeechActive;
     }
 
     private void Start()
@@ -24,7 +26,7 @@ public class Girl : MonoBehaviour
 
     private void OnDestroy()
     {
-        GameManager.OnSpeechActive -= GameManager_OnSpeechActive;
+        MessageBus.OnSpeechActive.Receive -= GameManager_OnSpeechActive;
     }
 
     public void SetPosition()

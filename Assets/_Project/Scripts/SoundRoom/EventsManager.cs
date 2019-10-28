@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Bluehorse.Game.Messages;
 using UnityEngine;
 
 public class EventsManager : MonoBehaviour
 {
-    public static event Action<bool> OnPitchDeviceSetActive;
-    public static event Action<bool> OnVolumeDeviceSetActive;
+    //public static event Action<bool> OnPitchDeviceSetActive;
+    //public static event Action<bool> OnVolumeDeviceSetActive;
 
     bool b1 = true, b2 = true;
 
@@ -18,13 +16,15 @@ public class EventsManager : MonoBehaviour
 
     public void PitchDeviceSetActive()
     {
-        OnPitchDeviceSetActive?.Invoke(b1);
+        MessageBus.OnPitchDeviceSetActive.Send(b1);
+        //OnPitchDeviceSetActive?.Invoke(b1);
         b1 = !b1;
     }
 
     public void VolumeDeviceSetActive()
     {
-        OnVolumeDeviceSetActive?.Invoke(b2);
+        MessageBus.OnVolumeDeviceSetActive.Send(b2);
+        //OnVolumeDeviceSetActive?.Invoke(b2);
         b2 = !b2;
     }
 }

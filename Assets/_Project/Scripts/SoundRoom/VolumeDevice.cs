@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using System;
+using Bluehorse.Game.Messages;
 
 public class VolumeDevice : MonoBehaviour
 {
@@ -12,8 +13,9 @@ public class VolumeDevice : MonoBehaviour
 
     private void Awake()
     {
-        SoundReader02.OnAnalyzeSound += SoundReader02_OnAnalyzeSound;
-        EventsManager.OnVolumeDeviceSetActive += EventsManager_OnVolumeDeviceSetActive;
+        MessageBus.OnAnalyzeSound.Receive += SoundReader02_OnAnalyzeSound;
+        //SoundReader02.OnAnalyzeSound += SoundReader02_OnAnalyzeSound;
+        //EventsManager.OnVolumeDeviceSetActive += EventsManager_OnVolumeDeviceSetActive;
 
         _slider = GetComponentInChildren<Slider>();
     }
@@ -25,8 +27,9 @@ public class VolumeDevice : MonoBehaviour
 
     private void OnDestroy()
     {
-        SoundReader02.OnAnalyzeSound -= SoundReader02_OnAnalyzeSound;
-        EventsManager.OnVolumeDeviceSetActive -= EventsManager_OnVolumeDeviceSetActive;
+        MessageBus.OnAnalyzeSound.Receive -= SoundReader02_OnAnalyzeSound;
+        //SoundReader02.OnAnalyzeSound -= SoundReader02_OnAnalyzeSound;
+        //EventsManager.OnVolumeDeviceSetActive -= EventsManager_OnVolumeDeviceSetActive;
     }
 
     private void SoundReader02_OnAnalyzeSound(float[] obj)

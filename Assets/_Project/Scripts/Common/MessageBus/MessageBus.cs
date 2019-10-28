@@ -4,9 +4,20 @@ namespace Bluehorse.Game.Messages
 {
     public sealed class MessageBus
     {
-        public static readonly Message<string, float, object> SampleMessage01 = new Message<string, float, object>();
-        public static readonly Message<string, float, object> SampleMessage02 = new Message<string, float, object>();
+        public static readonly Message<float[]> OnAnalyzeSound = new Message<float[]>();        
+
+        public static readonly Message<bool> OnPitchDeviceSetActive = new Message<bool>();
+        public static readonly Message<bool> OnVolumeDeviceSetActive = new Message<bool>();
+
+        public static readonly Message OnLessonStart = new Message();
+        public static readonly Message OnStepFinished = new Message();
+        public static readonly Message<bool> OnSpeechActive = new Message<bool>();
+        
+        public static readonly Message<LessonStep> OnStepRun = new Message<LessonStep>();
+
         public static readonly Message<string, float, object> SampleMessage03 = new Message<string, float, object>();
+
+
     }
 
     public class MessageArgs

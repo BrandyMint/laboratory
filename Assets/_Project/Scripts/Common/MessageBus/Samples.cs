@@ -21,7 +21,7 @@ public class Samples : MonoBehaviour, IMessageReceiver
 
     void IMessageReceiver.OnEnable()
     {
-        MessageBus.SampleMessage01.Receive += SampleMessage01_Receive;
+        //MessageBus.SampleMessage01.Receive += SampleMessage01_Receive;
     }
 
     private void SampleMessage01_Receive(string arg1, float arg2, object arg3)
@@ -31,7 +31,7 @@ public class Samples : MonoBehaviour, IMessageReceiver
 
     void IMessageReceiver.OnDisable()
     {
-        MessageBus.SampleMessage01.Receive -= SampleMessage01_Receive;
+        //MessageBus.SampleMessage01.Receive -= SampleMessage01_Receive;
     }
 }
 
@@ -39,6 +39,6 @@ public class SamplePublisher
 {
     public void OnFire()
     {
-        MessageBus.SampleMessage01.Send(null, 123, null);
+        //MessageBus.SampleMessage01.Send(null, 123, null);
     }
 }
