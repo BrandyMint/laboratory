@@ -139,7 +139,7 @@ public class audio : MonoBehaviour
                     }
                     sp.ReadTimeout = 1;
                     start = false;
-                    InvokeRepeating("Resolocation", 0.1f, 0.132f);//если меньше 10 фпс ставьте повторения на 0.132f
+                    InvokeRepeating("Resolocation", 0.1f, 0.1f);//если меньше 10 фпс ставьте повторения на 0.132f
                 }
             }
             if (k == 10)
@@ -224,8 +224,8 @@ public class audio : MonoBehaviour
             f = (float.Parse(s) /100) ;
             shkala.transform.position = Vector3.Lerp(shkala.transform.position, new Vector3(shkala.transform.position.x, (-2.68f + (f * 0.05f)/2), shkala.transform.position.z), 0.1f);
             shkala.transform.localScale = new Vector3(shkala.transform.localScale.x, 4.6737f + (f * 0.09096f)/2, shkala.transform.localScale.z);
-            text.text = (f).ToString() ;
-            if ((f < 15.5) && (f > 14.5) && (k==1))
+            text.text = (Mathf.Round(f)).ToString() ;
+            if ((f < 15.5) && (f > 14.5) && (k==1))//15
             {
                 CancelInvoke("Resolocation");
                 sp.Close();
@@ -261,7 +261,7 @@ public class audio : MonoBehaviour
                     sound_5 = false;
                 }
             }
-            if ((f > 13.5) && (f < 14.5) && (k == 4))
+            if ((f > 13.5) && (f < 14.5) && (k == 4))//14
             {
                 CancelInvoke("Resolocation");
                 sp.Close();
