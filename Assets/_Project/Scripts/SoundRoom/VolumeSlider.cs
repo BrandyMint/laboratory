@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
+
+using Bluehorse.Game.Messages;
 
 public class VolumeSlider : MonoBehaviour
 {
@@ -14,7 +14,8 @@ public class VolumeSlider : MonoBehaviour
     }
     private void Start()
     {
-        SoundReader02.OnAnalyzeSound += SoundReader02_OnAnalyzeSound;
+        MessageBus.OnAnalyzeSound.Receive += SoundReader02_OnAnalyzeSound;
+        //SoundReader02.OnAnalyzeSound += SoundReader02_OnAnalyzeSound;
     }
 
     private void SoundReader02_OnAnalyzeSound(float[] obj)
@@ -26,6 +27,6 @@ public class VolumeSlider : MonoBehaviour
 
     private void OnDestroy()
     {
-        SoundReader02.OnAnalyzeSound -= SoundReader02_OnAnalyzeSound;
+        MessageBus.OnAnalyzeSound.Receive -= SoundReader02_OnAnalyzeSound;
     }
 }

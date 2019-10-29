@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bluehorse.Game.Messages;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ using UnityEngine.UI;
 
 public class SoundReader02 : MonoBehaviour
 {
-    public static event Action<float[]> OnAnalyzeSound;
+    //public static event Action<float[]> OnAnalyzeSound;
 
     public Text dbValText;
     public Text pitchValText;
@@ -60,7 +61,8 @@ public class SoundReader02 : MonoBehaviour
 
         vals = new float[] { dbVal, pitchVal };
 
-        OnAnalyzeSound?.Invoke(vals);
+        MessageBus.OnAnalyzeSound.Send(vals);
+        //OnAnalyzeSound?.Invoke(vals);
 
         //Debug.Log("RMS: " + rmsVal.ToString("F2"));
         //Debug.Log(dbVal.ToString("F1") + " dB");

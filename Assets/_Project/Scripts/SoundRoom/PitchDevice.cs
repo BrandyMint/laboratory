@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+using Bluehorse.Game.Messages;
 
 public class PitchDevice : MonoBehaviour
 {
@@ -11,8 +12,9 @@ public class PitchDevice : MonoBehaviour
 
     private void Awake()
     {
-        SoundReader02.OnAnalyzeSound += SoundReader02_OnAnalyzeSound;
-        EventsManager.OnPitchDeviceSetActive += EventsManager_OnPitchDeviceSetActive;
+        MessageBus.OnAnalyzeSound.Receive += SoundReader02_OnAnalyzeSound;
+        //SoundReader02.OnAnalyzeSound += SoundReader02_OnAnalyzeSound;
+        //EventsManager.OnPitchDeviceSetActive += EventsManager_OnPitchDeviceSetActive;
     }
 
     private void Start()
@@ -34,8 +36,9 @@ public class PitchDevice : MonoBehaviour
 
     private void OnDestroy()
     {
-        SoundReader02.OnAnalyzeSound -= SoundReader02_OnAnalyzeSound;
-        EventsManager.OnPitchDeviceSetActive -= EventsManager_OnPitchDeviceSetActive;
+        MessageBus.OnAnalyzeSound.Receive += SoundReader02_OnAnalyzeSound;
+        //SoundReader02.OnAnalyzeSound -= SoundReader02_OnAnalyzeSound;
+        //EventsManager.OnPitchDeviceSetActive -= EventsManager_OnPitchDeviceSetActive;
     }
 
     public void SetActive(bool value, TweenCallback callback = null)

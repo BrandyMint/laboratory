@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
+using Bluehorse.Game.Messages;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    public static event Action OnStepFinished;
-    public static event Action<bool> OnSpeechActive;
-    public static event Action OnLessonStart;
+    //public static event Action OnStepFinished;
+    //public static event Action<bool> OnSpeechActive;
+    //public static event Action OnLessonStart;
 
     public static GameObject instance;
 
@@ -18,25 +19,25 @@ public class GameManager : MonoSingleton<GameManager>
     public DeviceManager deviceManager;
     private CompositeDisposable _disposables;
 
-    private void Awake()
-    {
-        LessonManager.OnStepRun += LessonManager_OnStepRun;
-    }
-
     private void OnEnable()
     {
         _disposables = new CompositeDisposable();
+
+        MessageBus.OnStepRun.Receive += LessonManager_OnStepRun;
+        //LessonManager.OnStepRun += LessonManager_OnStepRun;
     }
 
     private void Start()
     {
         CreateGirl();
-        OnLessonStart?.Invoke();
+        MessageBus.OnLessonStart.Send();
+        //OnLessonStart?.Invoke();
     }
 
     public void StartLesson()
     {
-        OnLessonStart?.Invoke();
+        MessageBus.OnLessonStart.Send();
+        //OnLessonStart?.Invoke();
     }
 
     private void OnDisable()
@@ -45,6 +46,8 @@ public class GameManager : MonoSingleton<GameManager>
         {
             _disposables.Dispose();
         }
+
+        MessageBus.OnStepRun.Receive -= LessonManager_OnStepRun;
     }
 
     private void LessonManager_OnStepRun(LessonStep step)
@@ -122,8 +125,9 @@ public class GameManager : MonoSingleton<GameManager>
                 break;
             case LessonStepID.step14:
                 {
-                    OnSpeechActive?.Invoke(true);
-                    soundController.PlaySound1(step.id, () => { OnSpeechActive?.Invoke(false); });
+                    MessageBus.OnSpeechActive.Send(true);
+                    //OnSpeechActive?.Invoke(true);
+                    soundController.PlaySound1(step.id, () => { MessageBus.OnSpeechActive.Send(false); });
                 }
                 break;
             default:
@@ -139,14 +143,14 @@ public class GameManager : MonoSingleton<GameManager>
 
     void RunStep(LessonStep step)
     {
-        OnSpeechActive?.Invoke(true);
+        MessageBus.OnSpeechActive.Send(true);
 
         SoundController.Instance.PlaySound1(step.id, () =>
         {
-            OnSpeechActive?.Invoke(false);
+            MessageBus.OnSpeechActive.Send(false);
 
             Observable.Timer(System.TimeSpan.FromSeconds(step.actionTime))
-                      .Subscribe(_ => OnStepFinished?.Invoke())
+                      .Subscribe(_ => MessageBus.OnStepFinished.Send())
                       .AddTo(_disposables);
         });
     }
