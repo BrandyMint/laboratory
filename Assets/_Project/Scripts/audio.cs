@@ -17,7 +17,7 @@ public class audio : MonoBehaviour
     public bool sound_2;
     public bool sound_3;
     public bool sound_5;
-    public SerialPortWrapper sp;
+    public SerialPort sp = new SerialPort(SerialPort.GetPortNames()[0], 9600);
     public Text text;
     public bool start;
     public GameObject shkala;
@@ -127,11 +127,19 @@ public class audio : MonoBehaviour
                 k++;
                 if (k < 10)
                 {
-                    
-                    sp.Open();
+
+                    try
+                    {
+                        sp.Open();
+                    }
+                    catch
+                    {
+                        sp = new SerialPort(SerialPort.GetPortNames()[1], 9600);
+                        sp.Open();
+                    }
                     sp.ReadTimeout = 1;
                     start = false;
-                    InvokeRepeating("Resolocation", 0.1f, 0.1f);//если меньше 10 фпс ставьте повторения на 0.132f
+                    InvokeRepeating("Resolocation", 0.1f, 0.132f);//если меньше 10 фпс ставьте повторения на 0.132f
                 }
             }
             if (k == 10)
@@ -191,6 +199,20 @@ public class audio : MonoBehaviour
     {
         checkfree = true;
         Fish.GetComponent<Animator>().Play("frost");
+    }
+    public void Start1()
+    {
+        try
+        {
+            sp.Open();
+        }
+        catch  
+        {
+            sp = new SerialPort(SerialPort.GetPortNames()[1], 9600);
+            sp.Open();
+        }
+
+        InvokeRepeating("Resolocation", 0.1f, 0.132f);
     }
     private void Resolocation()
     {

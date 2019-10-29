@@ -10,7 +10,7 @@ using UnityEngine.UI;
 
 public class Recolocation1 : MonoBehaviour
 {
-    public SerialPortWrapper sp;
+    public SerialPort sp = new SerialPort(SerialPort.GetPortNames()[0], 9600);
     public bool B_Check;
     public GameObject[] lamp1 = new GameObject[21];
     public GameObject[] gg = new GameObject[5];
@@ -36,12 +36,16 @@ public class Recolocation1 : MonoBehaviour
     public bool start;
     int k = 0;
     public GameObject[] gg1 = new GameObject[3];
+    public Text text12;
 
 
     public Text text1;
     void Start()
     {
-        sp.BaudRate = 9600;
+        
+
+
+
     }
 
     void Update()
@@ -121,7 +125,16 @@ public class Recolocation1 : MonoBehaviour
 
         if (start)
         {
-            sp.Open();
+            try
+            {
+                sp.Open();
+            }
+            catch
+            {
+                sp = new SerialPort(SerialPort.GetPortNames()[1], 9600);
+                sp.Open();
+            }
+           
             sp.ReadTimeout = 1;
             girl.GetComponent<Animator>().Play("idle 0");
             InvokeRepeating("Resolocation", 0.01f, 0.01f);
@@ -145,7 +158,23 @@ public class Recolocation1 : MonoBehaviour
 
     }
  
-
+    public void start1()
+    {
+        try
+        {
+            sp.Open();
+        }
+        catch
+        {
+            sp =  new SerialPort(SerialPort.GetPortNames()[1], 9600);
+            sp.Open();
+        }
+        InvokeRepeating("Resolocation", 0.1f, 0.132f);
+        foreach (string s in SerialPort.GetPortNames())
+        {
+            text12.text += s + ' ';
+        }
+    }
     private void Resolocation()
     {
         

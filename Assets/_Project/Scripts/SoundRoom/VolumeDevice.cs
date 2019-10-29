@@ -9,6 +9,8 @@ public class VolumeDevice : MonoBehaviour
 {
     public RectTransform panel;
     private Slider _slider;
+    public Text text;
+    float a=0;
 
     private void Awake()
     {
@@ -32,6 +34,12 @@ public class VolumeDevice : MonoBehaviour
     private void SoundReader02_OnAnalyzeSound(float[] obj)
     {
         _slider.value = Mathf.Lerp(_slider.value, obj[0], 2 * Time.deltaTime);
+        if (Mathf.Lerp(_slider.value, obj[0], 2 * Time.deltaTime) > a)
+        {
+            a = Mathf.Lerp(_slider.value, obj[0], 2 * Time.deltaTime);
+            text.text = a.ToString();
+
+        }
     }
 
     public void SetActive(bool value, TweenCallback callback = null)

@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class Elek : MonoBehaviour
 {
     public AudioClip[] audioo = new AudioClip[20];
-    public SerialPortWrapper sp;
+    public SerialPort sp = new SerialPort(SerialPort.GetPortNames()[0],9600);
     public bool sound_1;
     public bool sound_2;
     public bool sound_3;
@@ -24,7 +24,7 @@ public class Elek : MonoBehaviour
     float f;
     void Start()
     {
-        sp.BaudRate = 9600;
+        //sp.BaudRate = 9600;
     }
 
     // Update is called once per frame
@@ -68,8 +68,16 @@ public class Elek : MonoBehaviour
         if (start)
         {
             girl.GetComponent<Animator>().Play("idle 1");
-            sp.Open();
-            sp.ReadTimeout = 1;
+            try
+            {
+                sp.Open();
+            }
+            catch
+            {
+                sp = new SerialPort(SerialPort.GetPortNames()[1], 9600);
+                sp.Open();
+            }
+            
             InvokeRepeating("Resolocation", 0.1f, 0.132f);
             Invoke("stopi", 15f);
             start = false;
@@ -87,6 +95,20 @@ public class Elek : MonoBehaviour
         
 
     }
+    public void start1()
+    {
+        try
+        {
+            sp.Open();
+        }
+        catch
+        {
+            sp = new SerialPort(SerialPort.GetPortNames()[1], 9600);
+            sp.Open();
+        }
+      
+        InvokeRepeating("Resolocation", 0.1f, 0.132f);
+    }
     private void Resolocation()
     {
 
@@ -94,7 +116,7 @@ public class Elek : MonoBehaviour
             string s = sp.ReadLine();
             
             s = s.Substring(s.IndexOf('v') + 1, s.IndexOf(';') - s.IndexOf('v') - 1);
-            f = (float.Parse(s) / 100);
+            f = (float.Parse(s) / 1000);
             shkala.transform.rotation= Quaternion.Euler(0, 0, -f*5); 
         
             text.text = (f.ToString());
