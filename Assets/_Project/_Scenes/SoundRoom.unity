@@ -8685,6 +8685,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2081757854 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7155913769644292034, guid: 09f0f4b966997984497ca670ec92141b,
+    type: 3}
+  m_PrefabInstance: {fileID: 7155913769130769630}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab1be95430727c46a29433442c98ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2116127035
 GameObject:
   m_ObjectHideFlags: 0
@@ -9077,6 +9089,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7155913769441403882, guid: 09f0f4b966997984497ca670ec92141b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2081757854}
+    - target: {fileID: 7155913769441403882, guid: 09f0f4b966997984497ca670ec92141b,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadScene1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09f0f4b966997984497ca670ec92141b, type: 3}

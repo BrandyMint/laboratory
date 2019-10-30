@@ -232,7 +232,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7155913769644292034}
         m_MethodName: LoadScene1
         m_Mode: 3
         m_Arguments:
