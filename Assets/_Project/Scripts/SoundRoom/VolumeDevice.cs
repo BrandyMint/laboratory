@@ -11,11 +11,21 @@ public class VolumeDevice : MonoBehaviour
     public RectTransform panel;
     private Slider _slider;
 
+    public float posXShow = -247;
+    public float posXHide = -1721;
+
+    private void Start()
+    {
+        panel.DOAnchorPosX(posXHide, 0);
+    }
+
     private void Awake()
     {
         MessageBus.OnAnalyzeSound.Receive += SoundReader02_OnAnalyzeSound;
         //SoundReader02.OnAnalyzeSound += SoundReader02_OnAnalyzeSound;
         //EventsManager.OnVolumeDeviceSetActive += EventsManager_OnVolumeDeviceSetActive;
+
+        MessageBus.OnVolumeDeviceSetActive.Receive += EventsManager_OnVolumeDeviceSetActive;
 
         _slider = GetComponentInChildren<Slider>();
     }
@@ -41,11 +51,11 @@ public class VolumeDevice : MonoBehaviour
     {
         if (value)
         {
-            panel.DOAnchorPosX(-233, 1).OnComplete(callback);
+            panel.DOAnchorPosX(posXShow, 1).OnComplete(callback);
         }
         else
         {
-            panel.DOAnchorPosX(-1685, 1).OnComplete(callback);
+            panel.DOAnchorPosX(posXHide, 1).OnComplete(callback);
         }
 
 

@@ -10,18 +10,23 @@ public class PitchDevice : MonoBehaviour
     public TextMeshProUGUI text;
     public RectTransform panel;
 
+    public float posYShow = -540;
+    public float posYHide = 457;
+
     private void Awake()
     {
         MessageBus.OnAnalyzeSound.Receive += SoundReader02_OnAnalyzeSound;
         //SoundReader02.OnAnalyzeSound += SoundReader02_OnAnalyzeSound;
         //EventsManager.OnPitchDeviceSetActive += EventsManager_OnPitchDeviceSetActive;
+
+        MessageBus.OnPitchDeviceSetActive.Receive += EventsManager_OnPitchDeviceSetActive;
     }
 
     private void Start()
     {
 
 
-        panel.DOAnchorPosY(900, 0);
+        panel.DOAnchorPosY(posYHide, 0);
     }
 
     private void EventsManager_OnPitchDeviceSetActive(bool obj)
@@ -45,11 +50,11 @@ public class PitchDevice : MonoBehaviour
     {
         if (value)
         {
-            panel.DOAnchorPosY(2.5f, 1).OnComplete(callback); ;
+            panel.DOAnchorPosY(posYShow, 1).OnComplete(callback); ;
         }
         else
         {
-            panel.DOAnchorPosY(900, 1).OnComplete(callback); ;
+            panel.DOAnchorPosY(posYHide, 1).OnComplete(callback); ;
         }
 
 
