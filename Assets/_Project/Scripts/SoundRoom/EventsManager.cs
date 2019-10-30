@@ -27,4 +27,11 @@ public class EventsManager : MonoBehaviour
         //OnVolumeDeviceSetActive?.Invoke(b2);
         b2 = !b2;
     }
+
+    public void TemperatureDeviceSetActive()
+    {
+        MessageBus.OnTemperatureDeviceSetActive.Send(b1);
+        //OnPitchDeviceSetActive?.Invoke(b1);
+        b1 = !b1;
+    }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Bluehorse.Game.Messages;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,8 +24,10 @@ public class anim : MonoBehaviour
     {
         if (kek)
         {
-            gg.GetComponent<Animator>().Play(s);
-            CancelInvoke("start1");
+            //gg.GetComponent<Animator>().Play(s);
+            //CancelInvoke("start1");
+
+            MessageBus.OnTemperatureDeviceSetActive.Send(true);
         }
     }
 }
