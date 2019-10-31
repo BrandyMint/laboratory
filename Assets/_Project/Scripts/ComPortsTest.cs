@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO.Ports;
 using System.Management;
-//using System.Management;
+
 using System.Management.Instrumentation;
 using System.Runtime.InteropServices;
 
@@ -13,7 +13,7 @@ public class ComPortsTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SerialPort.GetPortNames();
+
     }
 
     // Update is called once per frame
@@ -48,6 +48,12 @@ public class ComPortsTest : MonoBehaviour
 
     //    return null;
     //}
+
+    public void ShowArdPort()
+    {
+        Debug.Log($"Arduino port: {GetArduinoPort()}");
+    }
+
     public string GetArduinoPort()
     {
         var ports = SerialPort.GetPortNames();
@@ -56,12 +62,26 @@ public class ComPortsTest : MonoBehaviour
 
         foreach (var item in ports)
         {
+            Debug.Log($"Detected: {item}");
+
             try
             {
-                var sp = new SerialPort();
-                sp.
-                sp.Open();
-                sp.ReadTimeout = 1;
+                using (var sp = new SerialPort(item, 9600))
+                {
+                    sp.ReadTimeout = 1;
+                    sp.Open();
+
+                    var line = sp.ReadLine();
+
+                    if (line.StartsWith("Teste"))
+                    {
+                        return item;
+
+                        //$v{ 0};
+                        //return string.Format(template, (int)value);
+                    }
+                }
+
             }
             catch (System.Exception)
             {
@@ -71,5 +91,16 @@ public class ComPortsTest : MonoBehaviour
         }
 
         return result;
+    }
+
+    private void AttemptConnection()
+    {
+        //serialPort = new SerialPort(portName, baudRate);
+        //serialPort.ReadTimeout = readTimeout;
+        //serialPort.WriteTimeout = writeTimeout;
+        //serialPort.Open();
+
+        //if (enqueueStatusMessages)
+        //    inputQueue.Enqueue(SerialController.SERIAL_DEVICE_CONNECTED);
     }
 }
