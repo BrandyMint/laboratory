@@ -73,7 +73,7 @@ public class ComPortsTest : MonoBehaviour
 
                     var line = sp.ReadLine();
 
-                    if (line.StartsWith("Teste"))
+                    if (line.StartsWith("$"))
                     {
                         return item;
 
