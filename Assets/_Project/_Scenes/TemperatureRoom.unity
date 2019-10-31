@@ -11353,6 +11353,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7155913768868591938, guid: 09f0f4b966997984497ca670ec92141b,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09f0f4b966997984497ca670ec92141b, type: 3}
 --- !u!224 &1540504305 stripped
@@ -13995,7 +14000,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -3.5, y: 62.1}
-  m_SizeDelta: {x: 284.9, y: 214.1}
+  m_SizeDelta: {x: 284.6, y: 146.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2031610055
 MonoBehaviour:
