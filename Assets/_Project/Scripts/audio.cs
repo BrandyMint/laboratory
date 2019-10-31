@@ -203,7 +203,7 @@ public class audio : MonoBehaviour
             shkala.transform.position = Vector3.Lerp(shkala.transform.position, new Vector3(shkala.transform.position.x, (-2.68f + (f * 0.05f)/2), shkala.transform.position.z), 0.1f);
             shkala.transform.localScale = new Vector3(shkala.transform.localScale.x, 4.6737f + (f * 0.09096f)/2, shkala.transform.localScale.z);
             text.text = (Mathf.Round(f)).ToString() ;
-            if ((f < 15.5) && (f > 14.5) && (k==1))
+            if ((f < 20.5) && (f > 19.5) && (k==1))
             {
                 CancelInvoke("Resolocation");
                 sp.Close();
@@ -215,7 +215,7 @@ public class audio : MonoBehaviour
                     sound_3 = false;
                 }
             }
-            if ((f < 20.5) && (f > 19.5) && (k == 2))
+            if ((f < 15.5) && (f > 14.5) && (k == 2))
             {
                 CancelInvoke("Resolocation");
                 sp.Close();
